@@ -1,8 +1,16 @@
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { Loading } from "./components/Loading";
+import { Hero } from "./components/Hero";
+
+gsap.registerPlugin(useGSAP); // register the hook to avoid React version discrepancies
+
 function App() {
   return (
-    <>
-      <h1>Jigme Tenzin Chogyel</h1>
-    </>
+    <main>
+      <Loading />
+      <Hero />
+    </main>
   );
 }
 
