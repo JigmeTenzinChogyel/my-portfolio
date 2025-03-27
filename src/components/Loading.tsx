@@ -16,15 +16,14 @@ export const Loading = () => {
       .from(".progress", {
         opacity: 0,
         delay: 1,
-        duration: 1,
         scaleX: 0,
         transformOrigin: "0px 0px",
       })
       .to(".loading", {
-        y: -1000,
-        duration: 1,
+        y: "-100%",
         opacity: 0.9,
-      });
+      })
+      .duration(3);
   });
   return (
     <div
@@ -39,6 +38,7 @@ export const Loading = () => {
         justifyContent: "center",
         backgroundColor: "#050301",
         color: "white",
+        zIndex: 10,
       }}
     >
       <div

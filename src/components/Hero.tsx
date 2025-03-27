@@ -4,30 +4,32 @@ import gsap from "gsap";
 
 export const Hero = () => {
   const tl = useRef<gsap.core.Timeline>(null);
+  const heroText = `I design and develop engaging, visually captivating digital experiences through code`;
+  const meText = `I am Jigme Tenzin Chogyel, a Software Engineer`;
+  const locationText = `Based in Thimphu, Bhutan`;
+  const delay = 3.5;
 
   useGSAP(() => {
-    tl.current = gsap.timeline().from(".heroText", {
+    tl.current = gsap
+      .timeline()
+      .to(".heroText", {
+        text: heroText,
+      })
+      .to(".meText", {
+        text: meText,
+      })
+      .to(".locationText", { text: locationText })
+      .duration(4)
+      .delay(delay);
+    gsap.from(".heroProgress", {
+      delay: delay,
       opacity: 0,
-      y: 20,
-      stagger: 0.1,
+      scaleX: 0,
+      duration: 3,
+      transformOrigin: "0px 0px",
     });
-    //   .from(".progress", {
-    //     opacity: 0,
-    //     delay: 1,
-    //     duration: 1,
-    //     scaleX: 0,
-    //     transformOrigin: "0px 0px",
-    //   })
-    //   .to(".loading", {
-    //     y: -1000,
-    //     duration: 1,
-    //     opacity: 0.9,
-    //   });
   });
 
-  const heroText = `I design and develop engaging, visually captivating digital experiences through code.`;
-  const meText = `I am Mohit Tiwari, a 13 year old teenager from`;
-  const locationText = ` Uttar Pradesh, India.`;
   return (
     <section
       style={{
@@ -71,15 +73,18 @@ export const Hero = () => {
         </nav>
       </div>
 
-      <h2 className="heroText">{heroText}</h2>
+      <h2 className="heroText" />
       <div
+        className="heroProgress"
         style={{
-          borderTop: "2px solid black",
-          width: "70%",
+          height: "0.1rem",
+          width: "75%",
+          backgroundColor: "black",
+          borderRadius: "15%",
         }}
       />
-      <p>{meText}</p>
-      <p>{locationText}</p>
+      <p className="meText" />
+      <p className="locationText" />
     </section>
   );
 };
