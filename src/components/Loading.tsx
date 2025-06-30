@@ -82,7 +82,7 @@ export const Loading = () => {
         }}
       >
         <p>Loading...</p>
-        <p>Blown Away</p>
+        <p>Get Blown Away</p>
       </div>
     </div>
   );
