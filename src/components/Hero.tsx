@@ -4,7 +4,7 @@ import gsap from "gsap";
 
 export const Hero = () => {
   const tl = useRef<gsap.core.Timeline>(null);
-  const heroText = `I design and develop engaging, visually captivating digital experiences through code`;
+  const heroText = `I build fast, clean, and scalable web applications`;
   const meText = `I am Jigme Tenzin Chogyel, a Software Engineer`;
   const locationText = `Based in Thimphu, Bhutan`;
   const delay = 3.5;
@@ -12,6 +12,13 @@ export const Hero = () => {
   useGSAP(() => {
     tl.current = gsap
       .timeline()
+      .from(".logo", {
+        y: -100,
+      })
+      .from(".nav", {
+        y: -100,
+        stagger: 0.2,
+      })
       .to(".heroText", {
         text: heroText,
       })
@@ -32,6 +39,7 @@ export const Hero = () => {
 
   return (
     <section
+      id="hero-page"
       style={{
         padding: "2% 4% ",
         height: "100vh",
@@ -54,7 +62,7 @@ export const Hero = () => {
           left: "0",
         }}
       >
-        <h1>JigmeTenzinChogyel</h1>
+        <h1 className="logo">JigmeTenzinChogyel</h1>
         <nav>
           <ul
             style={{
@@ -66,9 +74,15 @@ export const Hero = () => {
               listStyle: "none",
             }}
           >
-            <li>Home</li>
-            <li>About</li>
-            <li>Work</li>
+            <li className="nav">
+              <a href="#hero-page">Home</a>
+            </li>
+            <li className="nav">
+              <a href="#work-page">Work</a>
+            </li>
+            <li className="nav">
+              <a href="#about-page">About</a>
+            </li>
           </ul>
         </nav>
       </div>
